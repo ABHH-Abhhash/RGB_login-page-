@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mega RGB Gaming Login</title>
+    <style>
+        /* Base page: Black for max contrast */
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #000;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            overflow: hidden;
+        }
+
+        /* Continuous RGB Gradient Animation */
+        @keyframes rgbGlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Define the RGB Gradient once */
+        :root {
+            --rgb-gradient: linear-gradient(90deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3, #ff0000);
+            --gradient-size: 200% auto;
+        }
+
+        /* 1. The main form container with RGB border */
+        .rgb-box {
+            position: relative;
+            width: 380px;
+            padding: 5px; /* Border thickness */
+            border-radius: 15px;
+            background: var(--rgb-gradient);
+            background-size: var(--gradient-size);
+            animation: rgbGlow 4s linear infinite;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.5); /* Initial glow */
+        }
+
+        /* Inner black container (where content sits) */
+        .form-content {
+            background: rgba(10, 10, 10, 0.95);
+            padding: 40px;
+            border-radius: 12px;
+            color: #fff;
+        }
+
+        h2 {
+            text-align: center;
+            margin: 0 0 30px;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 0 0 10px #fff, 0 0 20px var(--rgb-gradient); /* RGB text shadow */
+        }
+
+        .input-group {
+            position: relative;
+            margin-bottom: 25px;
+        }
+
+        /* 2. RGB for INPUT FIELDS */
+        .input-group input {
+            width: 100%;
+            padding: 12px 15px;
+            background: rgba(20, 20, 20, 0.8);
+            border: 2px solid transparent; /* Prepare for RGB border */
+            border-radius: 8px;
+            outline: none;
+            color: #fff;
+            font-size: 16px;
+            box-sizing: border-box;
+            transition: 0.3s;
+            
+            /* Apply RGB gradient to border *only* on focus */
+            background-image: linear-gradient(rgba(20,20,20,0.8), rgba(20,20,20,0.8)), var(--rgb-gradient);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+            background-size: 100% 100%, var(--gradient-size);
+        }
+
+        /* Input field animations when typing (active) */
+        .input-group input:focus {
+            animation: rgbGlow 3s linear infinite;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
+        }
+
+        .input-group input::placeholder {
+            color: #777;
+        }
+
+        /* 3. RGB for BUTTON */
+        .btn-rgb {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            color: #fff;
+            font-size: 18px;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            position: relative;
+            z-index: 1;
+            transition: 0.3s;
+            
+            /* Background RGB flow */
+            background: var(--rgb-gradient);
+            background-size: var(--gradient-size);
+            animation: rgbGlow 2s linear infinite; /* Faster flow for button */
+        }
+
+        /* Button Hover Effect: Mega Glow */
+        .btn-rgb:hover {
+            box-shadow: 0 0 10px var(--rgb-gradient), 
+                        0 0 20px rgba(255, 255, 255, 0.8),
+                        0 0 40px #00ff00; /* Extra green glow on hover */
+            transform: scale(1.02);
+        }
+
+        /* Create Account Link */
+        .create-link {
+            display: block;
+            text-align: center;
+            margin-top: 25px;
+            color: #aaa;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .create-link span {
+            color: #ff00ff; /* Purple placeholder */
+            font-weight: bold;
+        }
+
+        .create-link:hover {
+            color: #fff;
+            text-shadow: 0 0 5px #ff00ff;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="rgb-box">
+        <div class="form-content">
+            <h2>RGB LOGIN</h2>
+            <form>
+                <div class="input-group">
+                    <input type="text" name="username" placeholder="Gamertag / Username" required>
+                </div>
+                <div class="input-group">
+                    <input type="password" name="password" placeholder="Passcode" required>
+                </div>
+                
+                <button type="submit" class="btn-rgb">ACCESS SYSTEM</button>
+                
+                <a href="#" class="create-link">MADE BY ABHHASH YADAV <span>CREATE ACCOUNT</span></a>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
